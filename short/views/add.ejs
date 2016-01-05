@@ -1,0 +1,79 @@
+<%- include header %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4><strong>添加短地址</strong></h4>
+	</div>
+	<div class="panel-body" style="padding-top: 30px;">
+		<form class="form-horizontal" method="POST" action="/add">
+			<div class="form-group">
+				<label class="col-sm-1 control-label">
+					URL<span style="color:red;">*</span>
+				</label>
+				<div class="col-sm-6">
+					<input class="form-control" type="text" id="URL" name="URL"
+						   placeholder="请输入您的URL地址，如：http://www.sina.com.cn/"  required>
+				</div>
+				<br><br><br>
+				<div class="col-sm-11 col-sm-offset-1">
+					<input class="btn btn-default" type="reset" value="重置">
+					<input class="btn btn-primary" type="submit" value="提交">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<% if (doc) { %>
+<div class="alert alert-success col-sm-12">
+	<h2><%= title %></h2>
+	<h3 class="col-sm-12" style="overflow: auto">原地址：<%= doc.URL %></h3>
+	<h3 class="col-sm-12">短地址：<strong><%= doc.hash %></strong></h3>
+</div>
+<% } %>
+
+<script type="text/javascript">
+	if( !('placeholder' in document.createElement('input')) ){
+
+		$('input[placeholder],textarea[placeholder]').each(function(){
+			var that = $(this),
+					text= that.attr('placeholder');
+			if(that.val()===""){
+				that.val(text).addClass('placeholder');
+			}
+			that.focus(function(){
+				if(that.val()===text){
+					that.val("").removeClass('placeholder');
+				}
+			})
+					.blur(function(){
+						if(that.val()===""){
+							that.val(text).addClass('placeholder');
+						}
+					})
+					.closest('form').submit(function(){
+						if(that.val() === text){
+							that.val('');
+						}
+					});
+		});
+	}
+</script>
+<!--[if lt IE 9]>
+<script>
+	window.onload = function () {
+		var ele = document.getElementById('URL');
+		var tip = '请输入您的URL地址，如：http://www.sina.com.cn/';
+		ele.value = tip;
+		ele.onfocus = function () {
+			if (ele.value == tip) {
+				ele.value = '';
+			}
+		};
+		ele.onblur = function () {
+			if (ele.value == '') {
+				ele.value = tip;
+			}
+		};
+	};
+</script>
+<![endif]-->
+<%- include footer %>

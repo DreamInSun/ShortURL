@@ -1,0 +1,33 @@
+{
+    "name": "ShortURL",
+    "version": "1.0.0",
+    "description": "Orange Short URL",
+    "main": "app.js",
+    "dependencies": {
+        "short":"",
+        "express": "^4.13.3",
+        "body-parser": "^1.14.1",
+        "bootstrap": "^3.3.5",
+        "connect-flash": "^0.1.1",
+        "ejs": "^2.3.4",
+        "express-session": "^1.11.3",
+        "mongoose": "^4.1.8",
+        "path": "^0.12.7",
+        "session": "^0.1.0",
+        "url": "^0.11.0",
+        "short":"^2.5.2"
+    },
+    "devDependencies": {
+        "nconf": "^0.8.2"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app.js"
+    },
+    "keywords": [
+        "short",
+        "url"
+    ],
+    "author": "bluewaitor",
+    "license": "MIT"
+}

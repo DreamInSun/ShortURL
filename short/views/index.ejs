@@ -1,0 +1,30 @@
+<%- include header %>
+<% if (error) { %>
+<div class="alert alert-danger"><%= error %></div>
+<% } %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4><strong>您添加过的短地址</strong></h4>
+	</div>
+	<div class="panel-body" style="overflow: auto">
+		<a class="btn btn-primary" href="/add">添加短地址</a><br><br>
+		<table class="table table-striped" style="overflow: auto">
+			<tbody>
+			<tr>
+				<th class="col-sm-1 text-center">序号</th>
+				<th class="col-sm-1">短地址</th>
+				<th class="col-sm-10">原地址</th>
+			</tr>
+			<% var i = 0 %>
+			<% for (var key in docs) { %>
+			<tr>
+				<td class="col-sm-1 text-center"><%= i + 1 %></td>
+				<td class="col-sm-1"><%= docs[key].hash %></td>
+				<td class="col-sm-10" style="overflow: auto"><%= docs[key].URL %></td>
+			</tr>
+			<% i++; } %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<%- include footer %>
